@@ -10,9 +10,11 @@ then
     exit 1
 fi
 
-cd eShopOnWeb
+pushd eShopOnWeb
+
 docker compose build
-cd ..
+
+popd
 
 docker tag eshopwebmvc:latest $dockerRegistry/eshopwebmvc:latest
 docker tag eshoppublicapi:latest $dockerRegistry/eshoppublicapi:latest
