@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
-cd ./eShopOnWeb
+pushd ./eShopOnWeb
 
 docker compose up
+
+popd
