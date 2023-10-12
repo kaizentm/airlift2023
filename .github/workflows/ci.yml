@@ -4,6 +4,11 @@ on:
   push:
     branches: [ "main" ]
   workflow_dispatch:
+    inputs:
+      environment_name:
+        description: 'Environment name'
+        required: true
+        default: 'prod'
 
 jobs:
   build:
@@ -31,4 +36,5 @@ jobs:
       - name: Deploy infrastructure
         env:
           sqlServerAdministratorPassword: ${{ secrets.sqlServerAdministratorPassword }}
+          environmentName: ${{ github.event.inputs.environment_name }}
         run: ./deploy.sh
