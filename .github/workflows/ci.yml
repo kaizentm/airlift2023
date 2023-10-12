@@ -12,6 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Credential scanning
+        run: |
+          #!/bin/bash
+          if grep -ri "password: '" ./bicep ; then
+            echo "Found passwords in files 😦"
+
+            exit 1;
+          else
+            echo "No passwords found in files 👏"
+          fi
+
       - name: Azure Login
         uses: Azure/login@v1
         with:
