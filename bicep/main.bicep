@@ -1,4 +1,4 @@
-param environmentName string = 'prod'
+param environmentName string
 param acrName string
 param acrResourceGroupName string
 param dockerImage string
