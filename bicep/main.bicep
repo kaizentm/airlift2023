@@ -3,6 +3,9 @@ param acrName string
 param acrResourceGroupName string
 param dockerImage string
 
+@secure()
+param sqlServerAdministratorPassword string
+
 module sql_layer '01_sql/02_deployment/main.bicep' = {
   name: 'sql_layer'
   params: {
@@ -11,7 +14,7 @@ module sql_layer '01_sql/02_deployment/main.bicep' = {
     deploymentName: 'sql_layer'
     location: resourceGroup().location
     sqlServerAdministratorLogin: 'sqladmin'
-    sqlServerAdministratorPassword: 'P@ssw0rd1234'
+    sqlServerAdministratorPassword: sqlServerAdministratorPassword
   }
 }
 
