@@ -1,4 +1,5 @@
 param acrName string
+param acrResourceGroupName string
 param dockerImage string
 
 module sql_layer '01_sql/02_deployment/main.bicep' = {
@@ -29,7 +30,7 @@ module web_layer '02_webapp/02_deployment/main.bicep' = {
     appSvcPlanSkuName: 'B1'
     appSvcPlanSkuTier: 'Basic'
     containerRegistryName: acrName
-    containerRegistryResourceGroupName: resourceGroup().name
+    containerRegistryResourceGroupName: acrResourceGroupName
     sqlServerFqdn: sql_layer.outputs.sqlServerFqdn
   }
 }
