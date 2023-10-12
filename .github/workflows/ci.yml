@@ -45,4 +45,4 @@ jobs:
           sqlServerAdministratorPassword: ${{ secrets.sqlServerAdministratorPassword }}
           environmentName: ${{ github.event.inputs.environment_name }}
         run: |
-          ./test.sh
+          ./tests.sh
