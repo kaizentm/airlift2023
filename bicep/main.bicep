@@ -1,4 +1,4 @@
-param environmentName string = 'dev'
+param environmentName string = 'prod'
 param acrName string
 param acrResourceGroupName string
 param dockerImage string
@@ -31,8 +31,8 @@ module web_layer '02_webapp/02_deployment/main.bicep' = {
     sqlServerAdministratorPassword: sql_layer.outputs.sqlServerAdministratorPassword
     appSvcDockerImage: dockerImage
     appSvcDockerImageTag: 'latest'
-    appSvcPlanSkuName: 'B1'
-    appSvcPlanSkuTier: 'Basic'
+    appSvcPlanSkuName: 'P0v3'
+    appSvcPlanSkuTier: 'Premium0V3'
     containerRegistryName: acrName
     containerRegistryResourceGroupName: acrResourceGroupName
     sqlServerFqdn: sql_layer.outputs.sqlServerFqdn
