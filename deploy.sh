@@ -1,7 +1,7 @@
 #!/bin/bash
 
 location="westus"
-resource_group_name="airlift001"
+resource_group_name="airlift_prod"
 
 az group create --name "rg-${resource_group_name}" --location "${location}" --tags "TeamName=DevOps"
 
