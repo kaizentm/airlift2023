@@ -1,3 +1,4 @@
+param environmentName string = 'dev'
 param acrName string
 param acrResourceGroupName string
 param dockerImage string
@@ -5,7 +6,7 @@ param dockerImage string
 module sql_layer '01_sql/02_deployment/main.bicep' = {
   name: 'sql_layer'
   params: {
-    environment: 'dev'
+    environment: environmentName
     layerName: 'sql_layer'
     deploymentName: 'sql_layer'
     location: resourceGroup().location
@@ -17,7 +18,7 @@ module sql_layer '01_sql/02_deployment/main.bicep' = {
 module web_layer '02_webapp/02_deployment/main.bicep' = {
   name: 'web_layer'
   params: {
-    environment: 'dev'
+    environment: environmentName
     layerName: 'web_layer'
     deploymentName: 'web_layer'
     location: resourceGroup().location
