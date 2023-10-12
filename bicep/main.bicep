@@ -38,3 +38,6 @@ module web_layer '02_webapp/02_deployment/main.bicep' = {
     sqlServerFqdn: sql_layer.outputs.sqlServerFqdn
   }
 }
+
+output appServiceName string = web_layer.outputs.appServiceName
+output sqlServerName string = sql_layer.outputs.sqlServerName

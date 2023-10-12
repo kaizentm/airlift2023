@@ -38,7 +38,11 @@ jobs:
           sqlServerAdministratorPassword: ${{ secrets.sqlServerAdministratorPassword }}
           environmentName: ${{ github.event.inputs.environment_name }}
         run: |
-          AZ_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-          AZ_TENANT_ID=$(az account show --query tenantId --output tsv)
-          AZ_APPLICATION_ID="${{ secrets.AZURE_CREDENTIALS }} | jq -r .clientId"
           ./deploy.sh
+
+      - name: Test deployment
+        env:
+          sqlServerAdministratorPassword: ${{ secrets.sqlServerAdministratorPassword }}
+          environmentName: ${{ github.event.inputs.environment_name }}
+        run: |
+          ./test.sh
