@@ -42,7 +42,6 @@ jobs:
 
       - name: Test deployment
         env:
-          sqlServerAdministratorPassword: ${{ secrets.sqlServerAdministratorPassword }}
           environmentName: ${{ github.event.inputs.environment_name }}
         run: |
           ./tests.sh
